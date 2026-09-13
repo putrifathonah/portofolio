@@ -1,0 +1,40 @@
+export const technologiesData = {
+  row1: [
+    { name: "HTML", icon: "Code2", color: "#E34F26" },
+    { name: "CSS", icon: "Palette", color: "#1572B6" },
+    { name: "JavaScript", icon: "Code", color: "#F7DF1E" },
+    { name: "TypeScript", icon: "FileCode", color: "#3178C6" },
+    { name: "React", icon: "Atom", color: "#61DAFB" },
+    { name: "Next.js", icon: "Layers", color: "#A78BFA" },
+    { name: "Angular", icon: "ShieldCode", color: "#DD0031" },
+  ],
+  row2: [
+    { name: "Laravel", icon: "Layers", color: "#FF2D20" },
+    { name: "PHP", icon: "Server", color: "#777BB4" },
+    { name: "Node.js", icon: "Boxes", color: "#339933" },
+    { name: "Express.js", icon: "Zap", color: "#F472B6" },
+    { name: "Python", icon: "Terminal", color: "#3776AB" },
+    { name: "MySQL", icon: "HardDrive", color: "#4479A1" },
+    { name: "MongoDB", icon: "Database", color: "#47A248" },
+    { name: "Firebase", icon: "Flame", color: "#FFCA28" },
+  ],
+  row3: [
+    { name: "Tailwind CSS", icon: "Wind", color: "#06B6D4" },
+    { name: "Bootstrap", icon: "LayoutGrid", color: "#7952B3" },
+    { name: "Material UI", icon: "Component", color: "#007FFF" },
+    { name: "Figma", icon: "Figma", color: "#F24E1E" },
+    { name: "Git", icon: "GitBranch", color: "#F05032" },
+    { name: "GitHub", icon: "Github", color: "#A78BFA" },
+    { name: "Postman", icon: "Send", color: "#FF6C37" },
+    { name: "Trello", icon: "Kanban", color: "#0079BF" },
+  ],
+  row4: [
+    { name: "User Interface Design", icon: "Layout", color: "#F472B6", isSkill: true },
+    { name: "User Experience Design", icon: "UserCheck", color: "#A78BFA", isSkill: true },
+    { name: "Wireframing", icon: "Frame", color: "#3B82F6", isSkill: true },
+    { name: "Prototyping", icon: "Cpu", color: "#10B981", isSkill: true },
+    { name: "Design Thinking", icon: "Lightbulb", color: "#F59E0B", isSkill: true },
+    { name: "Requirements Analysis", icon: "ClipboardList", color: "#EC4899", isSkill: true },
+    { name: "Product Development", icon: "Compass", color: "#3B82F6", isSkill: true },
+  ]
+};

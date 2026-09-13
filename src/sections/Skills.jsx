@@ -1,97 +1,52 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import * as Icons from 'lucide-react';
+import React from 'react';
 import { SectionHeading } from '../components/common/SectionHeading';
-import { GlassCard } from '../components/common/GlassCard';
 import { Reveal } from '../components/common/Reveal';
-import { skillsData } from '../data/skills';
+import { TechnologyMarqueeRow } from '../components/technologies/TechnologyMarqueeRow';
+import { technologiesData } from '../data/technologies.data';
 
 export function Skills() {
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const categories = ['All', ...skillsData.map((s) => s.category)];
-
-  const filteredCategories = activeCategory === 'All'
-    ? skillsData
-    : skillsData.filter((s) => s.category === activeCategory);
+  const { row1, row2, row3, row4 } = technologiesData;
 
   return (
-    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 relative bg-light-bg/50 dark:bg-dark-bg/50">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 relative overflow-hidden bg-light-bg/50 dark:bg-dark-bg/50">
+      {/* Soft Ambient Background Light Glows */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-accent-purple/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-accent-pink/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Fade masks on left & right edges to soften marquee edges */}
+      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-light-bg dark:from-dark-bg to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-light-bg dark:from-dark-bg to-transparent z-10 pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Heading */}
         <SectionHeading
-          label="SKILLS"
-          title="TOOLS, SKILLS & THINGS I LOVE BUILDING."
-          subtitle="A breakdown of my technical capabilities, software stack, design tools, and engineering workflows."
+          label="TECHNOLOGIES & TOOLS"
+          title="TECHNOLOGIES I USE"
+          subtitle="Tools and technologies I use to explore ideas, build products, and turn problems into digital solutions."
+          align="center"
         />
 
-        {/* Category Filters */}
-        <Reveal direction="up" delay={0.2} width="100%" className="mb-10">
-          <div className="flex flex-wrap items-center justify-start sm:justify-center gap-2">
-            {categories.map((cat, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
-                  activeCategory === cat
-                    ? 'bg-gradient-to-r from-accent-pink to-accent-purple text-white shadow-md shadow-accent-purple/20'
-                    : 'glass-panel text-light-muted dark:text-dark-muted hover:text-light-text dark:hover:text-dark-text'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </Reveal>
+        {/* 4 Sequential Marquee Rows */}
+        <div className="space-y-4 sm:space-y-6 mt-12 w-full overflow-hidden">
+          {/* Row 1: Move LEFT -> RIGHT */}
+          <Reveal direction="up" delay={0.2} width="100%">
+            <TechnologyMarqueeRow items={row1} animationClass="animate-marquee-row1" />
+          </Reveal>
 
-        {/* Skills Cards Grid by Category */}
-        <div className="space-y-12">
-          {filteredCategories.map((group, groupIdx) => {
-            const GroupIcon = Icons[group.icon] || Icons.Code2;
-            return (
-              <div key={groupIdx} className="space-y-6">
-                <Reveal direction="up" delay={0.1}>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl glass-panel text-accent-purple">
-                      <GroupIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-light-text dark:text-dark-text">
-                        {group.category}
-                      </h3>
-                      <p className="text-xs text-light-muted dark:text-dark-muted">
-                        {group.description}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
+          {/* Row 2: Move RIGHT -> LEFT */}
+          <Reveal direction="up" delay={0.3} width="100%">
+            <TechnologyMarqueeRow items={row2} animationClass="animate-marquee-row2" />
+          </Reveal>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {group.skills.map((skill, skillIdx) => (
-                    <Reveal key={skillIdx} direction="up" delay={skillIdx * 0.08} width="100%">
-                      <GlassCard className="group relative p-5 h-full border border-dark-border/10 dark:border-dark-border/30 hover:border-accent-purple/50">
-                        <div className="flex items-start justify-between mb-3">
-                          <h4 className="font-bold text-base text-light-text dark:text-dark-text group-hover:text-accent-purple transition-colors">
-                            {skill.name}
-                          </h4>
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-widest bg-accent-purple/10 text-accent-purple dark:bg-accent-purple/20">
-                            {skill.level}
-                          </span>
-                        </div>
-                        <p className="text-xs text-light-muted dark:text-dark-muted leading-relaxed">
-                          {skill.desc}
-                        </p>
+          {/* Row 3: Move LEFT -> RIGHT */}
+          <Reveal direction="up" delay={0.4} width="100%">
+            <TechnologyMarqueeRow items={row3} animationClass="animate-marquee-row3" />
+          </Reveal>
 
-                        <div className="mt-4 pt-3 border-t border-dark-border/10 dark:border-dark-border/20 flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-accent-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <span>INTERACTIVE</span>
-                          <span>✦</span>
-                        </div>
-                      </GlassCard>
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          {/* Row 4: Move RIGHT -> LEFT (Product & Design Methodologies) */}
+          <Reveal direction="up" delay={0.5} width="100%">
+            <TechnologyMarqueeRow items={row4} animationClass="animate-marquee-row4" />
+          </Reveal>
         </div>
       </div>
     </section>

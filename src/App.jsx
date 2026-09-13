@@ -6,7 +6,6 @@ import { About } from './sections/About';
 import { Skills } from './sections/Skills';
 import { Projects } from './sections/Projects';
 import { Experience } from './sections/Experience';
-import { Technologies } from './sections/Technologies';
 import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
 import { useScrollProgress } from './hooks/useScrollProgress';
@@ -48,7 +47,6 @@ export function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Technologies />
         <Contact />
       </main>
 
@@ -59,3 +57,4 @@ export function App() {
 }
 
 export default App;
+

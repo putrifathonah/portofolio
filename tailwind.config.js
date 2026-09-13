@@ -34,6 +34,10 @@ export default {
       animation: {
         'marquee-left': 'marqueeLeft 30s linear infinite',
         'marquee-right': 'marqueeRight 30s linear infinite',
+        'marquee-row1': 'marqueeRight 35s linear infinite',
+        'marquee-row2': 'marqueeLeft 40s linear infinite',
+        'marquee-row3': 'marqueeRight 32s linear infinite',
+        'marquee-row4': 'marqueeLeft 45s linear infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
       },
