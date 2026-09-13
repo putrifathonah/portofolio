@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/common/SectionHeading';
 import { GlassCard } from '../components/common/GlassCard';
 import { MagneticButton } from '../components/common/MagneticButton';
 import { Reveal } from '../components/common/Reveal';
+import heroPict from '../images/heropict.JPG';
 
 export function About() {
   const infoCards = [
@@ -29,7 +30,7 @@ export function About() {
               <GlassCard className="relative w-full max-w-md mx-auto p-4 sm:p-5 border border-dark-border/20 dark:border-dark-border/40">
                 <div className="relative w-full h-[360px] sm:h-[420px] rounded-xl overflow-hidden bg-dark-bg/60">
                   <img
-                    src="/assets/profile/profile-placeholder.jpg"
+                    src={heroPict}
                     alt="Putri Fathonah About"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />

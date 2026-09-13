@@ -1,18 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Sparkles, Code, Layout, Lightbulb } from 'lucide-react';
+import { ArrowRight, ChevronDown, Sparkles, Code, Layout, Lightbulb, Palette } from 'lucide-react';
 import { MagneticButton } from '../components/common/MagneticButton';
 import { useMousePosition } from '../hooks/useMousePosition';
+import heroPict from '../images/heropict.JPG';
 
 export function Hero() {
   const { normalizedX, normalizedY } = useMousePosition();
 
-  // Subtle floating glass badges around profile image
+  // Floating glass badges around profile image
   const badges = [
-    { label: "UI/UX", icon: Layout, color: "text-accent-pink", top: "12%", left: "-8%", speed: 0.8 },
-    { label: "DEVELOPER", icon: Code, color: "text-accent-purple", top: "45%", right: "-12%", speed: 1.2 },
-    { label: "PROBLEM SOLVER", icon: Lightbulb, color: "text-accent-blue", bottom: "15%", left: "-6%", speed: 1.0 },
+    { label: "UI/UX", icon: Layout, color: "text-accent-pink", top: "10%", left: "-10%", speed: 0.8 },
+    { label: "DEVELOPER", icon: Code, color: "text-accent-purple", top: "38%", right: "-14%", speed: 1.3 },
+    { label: "PROBLEM SOLVER", icon: Lightbulb, color: "text-accent-blue", bottom: "18%", left: "-12%", speed: 1.0 },
+    { label: "CREATIVE THINKER", icon: Palette, color: "text-emerald-400", bottom: "-4%", right: "-4%", speed: 1.1 },
   ];
+
+  // Container variants for sequential staggered headline reveal
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const lineVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
+    },
+  };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 overflow-hidden">
@@ -36,33 +59,29 @@ export function Hero() {
             <span>HELLO, I'M PUTRI</span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Sequential Headline Animation */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-light-text dark:text-dark-text mb-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-light-text dark:text-dark-text mb-10"
           >
-            BUILDING DIGITAL{' '}
-            <span className="text-gradient-purple block sm:inline">EXPERIENCES</span>{' '}
-            WITH CODE & CREATIVITY.
+            <motion.span variants={lineVariants} className="block">
+              TURNING PROBLEMS
+            </motion.span>
+            <motion.span variants={lineVariants} className="block text-gradient-purple">
+              INTO DIGITAL
+            </motion.span>
+            <motion.span variants={lineVariants} className="block">
+              SOLUTIONS.
+            </motion.span>
           </motion.h1>
-
-          {/* Supporting Body Text */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-lg text-light-muted dark:text-dark-muted font-normal max-w-xl leading-relaxed mb-8"
-          >
-            Information Systems student passionate about technology, digital products, UI/UX, and building meaningful experiences through code.
-          </motion.p>
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             className="flex flex-wrap items-center gap-4"
           >
             <MagneticButton
@@ -105,7 +124,7 @@ export function Hero() {
               {/* Profile Image Frame */}
               <div className="w-full h-full rounded-2xl overflow-hidden relative group bg-dark-bg/60">
                 <img
-                  src="/assets/profile/profile-placeholder.jpg"
+                  src={heroPict}
                   alt="Putri Fathonah"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -127,7 +146,7 @@ export function Hero() {
                   style={{ top: badge.top, bottom: badge.bottom, left: badge.left, right: badge.right }}
                   animate={{
                     x: normalizedX * 25 * badge.speed,
-                    y: normalizedY * 25 * badge.speed + (index % 2 === 0 ? 6 : -6),
+                    y: normalizedY * 25 * badge.speed + (index % 2 === 0 ? 8 : -8),
                   }}
                   transition={{ type: 'spring', stiffness: 90, damping: 15 }}
                   className="absolute z-20 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-2xl glass-panel shadow-lg border border-white/20 select-none animate-float"
@@ -148,7 +167,7 @@ export function Hero() {
         href="#about"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[11px] font-semibold tracking-widest uppercase text-light-muted dark:text-dark-muted hover:text-accent-purple transition-colors cursor-pointer group"
       >
         <span>SCROLL TO EXPLORE</span>
@@ -157,3 +176,4 @@ export function Hero() {
     </section>
   );
 }
+
