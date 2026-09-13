@@ -1,15 +1,20 @@
 import React from 'react';
 import { TechnologyItem } from './TechnologyItem';
 
-export function TechnologyMarqueeRow({ items, animationClass = 'animate-marquee-left' }) {
-  // Duplicate array 3 times for seamless infinite 100% marquee loop
-  const marqueeItems = [...items, ...items, ...items];
-
+export function TechnologyMarqueeRow({ items, animationClass = 'animate-marquee-row1' }) {
   return (
-    <div className="flex w-full overflow-hidden py-1">
-      <div className={`flex gap-3 sm:gap-4 ${animationClass} hover:[animation-play-state:paused] shrink-0`}>
-        {marqueeItems.map((item, index) => (
-          <TechnologyItem key={`${item.name}-${index}`} item={item} />
+    <div className="marquee-group relative flex w-full overflow-hidden select-none py-1.5">
+      {/* Primary Track */}
+      <div className={`marquee-track flex shrink-0 items-center gap-3 sm:gap-4 pr-3 sm:pr-4 ${animationClass}`}>
+        {items.map((item, index) => (
+          <TechnologyItem key={`t1-${item.name}-${index}`} item={item} />
+        ))}
+      </div>
+
+      {/* Duplicate Track (for 100% seamless infinite loop without jump or truncation) */}
+      <div aria-hidden="true" className={`marquee-track flex shrink-0 items-center gap-3 sm:gap-4 pr-3 sm:pr-4 ${animationClass}`}>
+        {items.map((item, index) => (
+          <TechnologyItem key={`t2-${item.name}-${index}`} item={item} />
         ))}
       </div>
     </div>

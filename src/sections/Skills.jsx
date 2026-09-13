@@ -17,7 +17,7 @@ export function Skills() {
       <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-light-bg dark:from-dark-bg to-transparent z-10 pointer-events-none" />
       <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-light-bg dark:from-dark-bg to-transparent z-10 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="w-full max-w-7xl mx-auto relative z-10 overflow-hidden">
         {/* Section Heading */}
         <SectionHeading
           label="TECHNOLOGIES & TOOLS"
@@ -29,22 +29,22 @@ export function Skills() {
         {/* 4 Sequential Marquee Rows */}
         <div className="space-y-4 sm:space-y-6 mt-12 w-full overflow-hidden">
           {/* Row 1: Move LEFT -> RIGHT */}
-          <Reveal direction="up" delay={0.2} width="100%">
+          <Reveal direction="up" delay={0.2} width="100%" className="overflow-hidden">
             <TechnologyMarqueeRow items={row1} animationClass="animate-marquee-row1" />
           </Reveal>
 
           {/* Row 2: Move RIGHT -> LEFT */}
-          <Reveal direction="up" delay={0.3} width="100%">
+          <Reveal direction="up" delay={0.3} width="100%" className="overflow-hidden">
             <TechnologyMarqueeRow items={row2} animationClass="animate-marquee-row2" />
           </Reveal>
 
           {/* Row 3: Move LEFT -> RIGHT */}
-          <Reveal direction="up" delay={0.4} width="100%">
+          <Reveal direction="up" delay={0.4} width="100%" className="overflow-hidden">
             <TechnologyMarqueeRow items={row3} animationClass="animate-marquee-row3" />
           </Reveal>
 
           {/* Row 4: Move RIGHT -> LEFT (Product & Design Methodologies) */}
-          <Reveal direction="up" delay={0.5} width="100%">
+          <Reveal direction="up" delay={0.5} width="100%" className="overflow-hidden">
             <TechnologyMarqueeRow items={row4} animationClass="animate-marquee-row4" />
           </Reveal>
         </div>
