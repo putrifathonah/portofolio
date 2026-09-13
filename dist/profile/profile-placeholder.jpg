@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs>
+    <linearGradient id="pbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F472B6"/>
+      <stop offset="50%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="pblur">
+      <feGaussianBlur stdDeviation="50"/>
+    </filter>
+  </defs>
+  <rect width="600" height="700" fill="#11111a"/>
+  <circle cx="300" cy="300" r="220" fill="url(#pbg)" opacity="0.4" filter="url(#pblur)"/>
+  
+  <!-- Avatar outline / illustration -->
+  <circle cx="300" cy="260" r="110" fill="#1a1a28" stroke="url(#pbg)" stroke-width="4"/>
+  <path d="M 140 600 C 140 430, 460 430, 460 600 Z" fill="#1a1a28" stroke="url(#pbg)" stroke-width="4"/>
+  
+  <!-- Stylized initials -->
+  <text x="300" y="285" font-family="'Poppins', sans-serif" font-weight="800" font-size="72" fill="#ffffff" text-anchor="middle">PF</text>
+  
+  <rect x="150" y="580" width="300" height="50" rx="25" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+  <text x="300" y="612" font-family="'Poppins', sans-serif" font-weight="600" font-size="18" fill="#F472B6" text-anchor="middle">PUTRI FATHONAH</text>
+</svg>
