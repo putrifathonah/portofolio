@@ -1,8 +1,8 @@
 export const socialsData = [
   {
     name: "Email",
-    value: "putrifathonah.dev@gmail.com",
-    url: "mailto:putrifathonah.dev@gmail.com",
+    value: "putrifathonah004@gmail.com",
+    url: "mailto:putrifathonah004@gmail.com",
     icon: "Mail",
     label: "Send an Email"
   },
@@ -16,14 +16,14 @@ export const socialsData = [
   {
     name: "LinkedIn",
     value: "linkedin.com/in/putrifathonah",
-    url: "https://linkedin.com/in/putrifathonah",
+    url: "https://www.linkedin.com/in/putrifathonah",
     icon: "Linkedin",
     label: "Connect Professionally"
   },
   {
     name: "Instagram",
-    value: "@putrifathonah",
-    url: "https://instagram.com/putrifathonah",
+    value: "@puonaav",
+    url: "https://www.instagram.com/puonaav",
     icon: "Instagram",
     label: "Follow Updates"
   }

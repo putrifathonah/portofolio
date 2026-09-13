@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Calendar, MapPin, Layers, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 import { GlassCard } from '../common/GlassCard';
 
 export function ExperienceItem({ experience }) {
@@ -20,12 +20,12 @@ export function ExperienceItem({ experience }) {
         type="button"
         onClick={toggleAccordion}
         aria-expanded={isOpen}
-        aria-controls="experience-details-pln"
-        className="w-full p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-left focus:outline-none focus:ring-2 focus:ring-accent-purple/50 rounded-2xl cursor-pointer group"
+        aria-controls={`exp-details-${experience.id}`}
+        className="w-full p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5 text-left focus:outline-none focus:ring-2 focus:ring-accent-purple/50 rounded-2xl cursor-pointer group"
       >
-        {/* Left Side: Logo & Header Meta */}
+        {/* Left Side: Logo & Meta Info */}
         <div className="flex items-start sm:items-center gap-4 sm:gap-5">
-          {/* Company Logo Frame */}
+          {/* Company Logo Container */}
           <div className="p-2.5 rounded-2xl glass-panel bg-white/90 dark:bg-white/10 border border-dark-border/10 dark:border-white/20 shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
             <img
               src={experience.logo}
@@ -35,23 +35,21 @@ export function ExperienceItem({ experience }) {
           </div>
 
           <div>
-            <div className="mb-1">
-              <span className="font-extrabold text-lg sm:text-xl text-light-text dark:text-dark-text group-hover:text-accent-purple transition-colors">
-                {experience.company}
-              </span>
-            </div>
-
-            <h3 className="text-base sm:text-lg font-bold text-light-text/90 dark:text-dark-text/90 mb-1.5">
-              {experience.role}
+            <h3 className="font-extrabold text-lg sm:text-xl text-light-text dark:text-dark-text group-hover:text-accent-purple transition-colors leading-snug mb-1">
+              {experience.company}
             </h3>
 
+            <p className="text-sm sm:text-base font-bold text-light-text/80 dark:text-dark-text/80 mb-2">
+              {experience.role}
+            </p>
+
             <div className="flex flex-wrap items-center gap-3 text-xs text-light-muted dark:text-dark-muted font-medium">
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-accent-purple shrink-0" />
                 {experience.date}
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-accent-blue shrink-0" />
                 {experience.location}
               </span>
@@ -59,7 +57,7 @@ export function ExperienceItem({ experience }) {
           </div>
         </div>
 
-        {/* Right Side: Interactive Chevron Button */}
+        {/* Right Side: Expand Dropdown Chevron Button */}
         <div className="flex items-center justify-end sm:justify-center">
           <div className={`p-3 rounded-full glass-panel transition-all duration-300 ${isOpen ? 'bg-accent-purple text-white shadow-md shadow-accent-purple/30' : 'text-light-muted dark:text-dark-muted group-hover:text-accent-purple'}`}>
             <motion.div
@@ -72,19 +70,19 @@ export function ExperienceItem({ experience }) {
         </div>
       </button>
 
-      {/* Expandable Content Details */}
+      {/* Collapsible Details Body */}
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            id="experience-details-pln"
+            id={`exp-details-${experience.id}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
+            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="overflow-hidden border-t border-dark-border/10 dark:border-dark-border/20 bg-light-bg/40 dark:bg-dark-bg/40"
           >
             <div className="p-6 sm:p-8 space-y-6">
-              {/* Subsection: EXPERIENCE */}
+              {/* Subsection: EXPERIENCE Description */}
               <div>
                 <span className="block text-xs font-mono font-bold uppercase tracking-widest text-accent-purple mb-3">
                   EXPERIENCE

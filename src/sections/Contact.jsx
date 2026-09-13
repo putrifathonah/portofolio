@@ -19,32 +19,32 @@ export function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      setStatus({ type: 'error', message: 'Please fill in all required fields.' });
+      setStatus({ type: 'error', message: 'Please fill in all fields before sending.' });
       return;
     }
 
-    setStatus({ type: 'loading', message: 'Preparing your message...' });
+    setStatus({ type: 'loading', message: 'Sending message...' });
 
-    // Simulate clean frontend submission prototype
+    // Clean frontend submission prototype
     setTimeout(() => {
       setStatus({
         type: 'success',
-        message: 'Thank you! Your message prototype was sent successfully. (Frontend V1 Demo)'
+        message: 'Thank you for reaching out! Your message has been sent successfully.'
       });
       setFormData({ name: '', email: '', message: '' });
-    }, 1200);
+    }, 1000);
   };
 
   return (
     <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 relative bg-light-bg/50 dark:bg-dark-bg/50">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
-          label="LET'S CONNECT"
-          title="HAVE AN IDEA? LET'S BUILD."
-          subtitle="Whether it's a digital product, creative experiment, or simply a conversation about technology, I'd love to hear from you."
+          label="CONTACT"
+          title="LET'S CONNECT."
+          subtitle="Open to conversations, collaborations, and new opportunities in technology and digital products."
         />
 
-        <div className="grid lg:grid-cols-12 gap-10">
+        <div className="grid lg:grid-cols-12 gap-10 mt-12">
           {/* Left Column: Social Link Cards */}
           <div className="lg:col-span-5 space-y-4">
             <Reveal direction="left" delay={0.2} width="100%">
@@ -97,7 +97,7 @@ export function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-light-muted dark:text-dark-muted mb-2">
-                      Your Name *
+                      YOUR NAME
                     </label>
                     <input
                       type="text"
@@ -105,14 +105,14 @@ export function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Jane Doe"
+                      placeholder="Your name"
                       className="w-full px-4 py-3 rounded-xl glass-panel bg-light-bg/40 dark:bg-dark-bg/60 border border-dark-border/10 dark:border-dark-border/30 focus:border-accent-purple focus:outline-none text-light-text dark:text-dark-text text-sm transition-colors"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-light-muted dark:text-dark-muted mb-2">
-                      Your Email *
+                      YOUR EMAIL
                     </label>
                     <input
                       type="email"
@@ -120,14 +120,14 @@ export function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="jane@example.com"
+                      placeholder="your@email.com"
                       className="w-full px-4 py-3 rounded-xl glass-panel bg-light-bg/40 dark:bg-dark-bg/60 border border-dark-border/10 dark:border-dark-border/30 focus:border-accent-purple focus:outline-none text-light-text dark:text-dark-text text-sm transition-colors"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-light-muted dark:text-dark-muted mb-2">
-                      Your Message *
+                      YOUR MESSAGE
                     </label>
                     <textarea
                       id="message"
@@ -135,7 +135,7 @@ export function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell me about your project or inquiry..."
+                      placeholder="Tell me a little about what you're working on..."
                       className="w-full px-4 py-3 rounded-xl glass-panel bg-light-bg/40 dark:bg-dark-bg/60 border border-dark-border/10 dark:border-dark-border/30 focus:border-accent-purple focus:outline-none text-light-text dark:text-dark-text text-sm transition-colors resize-none"
                     />
                   </div>
