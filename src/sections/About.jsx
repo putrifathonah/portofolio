@@ -84,8 +84,8 @@ export function About() {
             <div className="pt-4 flex items-center justify-center">
               <MagneticButton
                 variant="primary"
-                href="/assets/cv/cv-demo.pdf"
-                download="cv-demo.pdf"
+                href="/cv/PutriFathonah_CV.pdf"
+                download="PutriFathonah_CV.pdf"
               >
                 <span>DOWNLOAD CV</span>
                 <Download className="w-4 h-4" />
